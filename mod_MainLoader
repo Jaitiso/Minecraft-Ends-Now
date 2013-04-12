@@ -1,0 +1,195 @@
+package net.minecraft.src;
+
+import net.java.games.util.Version;
+
+public class mod_MainLoader extends BaseMod {
+
+  public void load() {
+		Tools();
+		Armor();
+	}
+	// Register Items
+	public static Item DiIngot = new Item(1015).setUnlocalizedName("DiIngot").setCreativeTab(CreativeTabs.tabMaterials);
+	public static Item Rediamond = new Item(1016).setUnlocalizedName("ReDiamond").setCreativeTab(CreativeTabs.tabMaterials);
+	public static Item Rediamondillium = new Item(1017).setUnlocalizedName("Rediamondillium").setCreativeTab(CreativeTabs.tabMaterials);
+	public static Item Core = (new Item(1018)).setUnlocalizedName("Core").setCreativeTab(CreativeTabs.tabCombat);
+	public static Item cheeseSlice = new Item(1019).setUnlocalizedName("Cheese Slice").setCreativeTab(CreativeTabs.tabMisc);
+	public static mod_M110 m110normal = (mod_M110) (new mod_M110(1020)).setUnlocalizedName("M110").setCreativeTab(CreativeTabs.tabCombat);
+	public static Item bullet = (new Item(1045)).setUnlocalizedName("Bullet").setCreativeTab(CreativeTabs.tabCombat);
+	public static Item m110mag = (new Item(1030)).setUnlocalizedName("M110 Mag").setCreativeTab(CreativeTabs.tabCombat);
+	public static Item Barrel = new Item(1029).setUnlocalizedName("Barrel").setCreativeTab(CreativeTabs.tabCombat);
+	public static Item TriggerNormal = new Item(1025).setUnlocalizedName("Trigger Normal").setCreativeTab(CreativeTabs.tabCombat);
+	public static Item TriggerExplo = new Item(1026).setUnlocalizedName("Trigger Explo").setCreativeTab(CreativeTabs.tabCombat);
+	public static Item TriggerPeirce = new Item(1027).setUnlocalizedName("Trigger Perice").setCreativeTab(CreativeTabs.tabCombat);
+	public static Item Wolframite = new Item(1028).setUnlocalizedName("Wolframite").setCreativeTab(CreativeTabs.tabMaterials);
+	
+	// Register Blocks
+	public static final Block Cheese = (new BlockCheese(251)).getIndirectPowerOutput("Cheese").setHardness(1.0F).setResistance(1.0F).setCreativeTab(CreativeTabs.tabBlock);
+
+	
+	
+	public mod_MainLoader() {
+		// In game names
+		ModLoader.addName(DiIngot, "Diamondillium");
+		ModLoader.addName(Rediamond, "Rediamond Gem");
+		ModLoader.addName(Rediamondillium, "Rediamondillium Gem");
+		ModLoader.addName(Cheese, "Cheese Block");
+		ModLoader.addName(cheeseSlice, "Cheese Slice");
+		ModLoader.addName(m110normal, "M110");
+		ModLoader.addName(m110mag, "M110 Magazine");
+		ModLoader.addName(bullet, "Bullet"); 
+		ModLoader.addName(Barrel, "Gun Barrel");
+		ModLoader.addName(TriggerNormal, "Normal Trigger");
+		ModLoader.addName(TriggerExplo, "Explotion Trigger");
+		ModLoader.addName(TriggerPeirce, "Peircing Trigger");
+		ModLoader.addName(Wolframite, "Wolframite");
+		
+		
+		// Recipes
+		ModLoader.addRecipe(new ItemStack(Cheese, 2), new Object[] { "XXX", "XXX", "XXX", 'X', Item.bucketMilk });
+		ModLoader.addRecipe(new ItemStack(mod_Foods.CheeseSlice, 16), new Object[] { " X ", 'X', Cheese });
+		ModLoader.addRecipe(new ItemStack(m110normal, 1), new Object[] { "&X ", " @X", "  #", '&', Barrel, 'X', Item.ingotIron, '#', TriggerNormal, '@', Item.ingotGold });
+		//Furnace
+
+		// Gun Recipes 
+		// & = Barrel 
+		// X = Iron
+		// # = Trigger
+		// @ = Definer (gold, lapis, redstone, iron)
+		
+
+		}
+	
+	
+	
+	
+	
+	
+	public void Tools() {
+		// Tools
+		Item pickaxeRedstone = new ItemPickaxe(1001, EnumToolMaterial.REDSTONE)
+				.setUnlocalizedName("Redstone Pickaxe");
+		Item axeRedstone = new ItemAxe(1002, EnumToolMaterial.REDSTONE)
+				.setUnlocalizedName("Redstone Axe");
+		Item hoeRedstone = new ItemHoe(1003, EnumToolMaterial.REDSTONE)
+				.setUnlocalizedName("Redstone Hoe");
+		Item spadeRedstone = new ItemSpade(1004, EnumToolMaterial.REDSTONE)
+				.setUnlocalizedName("Redstone Spade");
+		Item swordRedstone = new ItemSword(1005, EnumToolMaterial.REDSTONE)
+				.setUnlocalizedName("Redstone Sword");
+		Item pickaxeObsidian = new ItemPickaxe(1006, EnumToolMaterial.OBSIDIAN)
+				.setUnlocalizedName("Obsidian Pickaxe");
+		Item axeObsidian = new ItemAxe(1007, EnumToolMaterial.OBSIDIAN)
+				.setUnlocalizedName("Obsidian Axe");
+		Item hoeObsidian = new ItemHoe(1008, EnumToolMaterial.OBSIDIAN)
+				.setUnlocalizedName("Obsidian Hoe");
+		Item spadeObsidian = new ItemSpade(1009, EnumToolMaterial.OBSIDIAN)
+				.setUnlocalizedName("Obsidian Shovel");
+		Item swordObsidian = new ItemSword(1010, EnumToolMaterial.OBSIDIAN)
+				.setUnlocalizedName("Obsidian Sword");
+
+		// Recipes
+		ModLoader.addRecipe(new ItemStack(pickaxeRedstone, 1), new Object[] {
+				"XXX", " * ", " * ", 'X', Item.redstone, '*', Item.stick });
+		ModLoader.addRecipe(new ItemStack(axeRedstone, 1), new Object[] {
+				"XX ", "X* ", " * ", 'X', Item.redstone, '*', Item.stick });
+		ModLoader.addRecipe(new ItemStack(hoeRedstone, 1), new Object[] {
+				" XX", " * ", " * ", 'X', Item.redstone, '*', Item.stick });
+		ModLoader.addRecipe(new ItemStack(spadeRedstone, 1), new Object[] {
+				" X ", " * ", " * ", 'X', Item.redstone, '*', Item.stick });
+		ModLoader.addRecipe(new ItemStack(swordRedstone, 1), new Object[] {
+				" X ", " X ", " * ", 'X', Item.redstone, '*', Item.stick });
+		ModLoader.addRecipe(new ItemStack(pickaxeObsidian, 1), new Object[] {
+				"XXX", " * ", " * ", 'X', Block.obsidian, '*', Item.stick });
+		ModLoader.addRecipe(new ItemStack(axeObsidian, 1), new Object[] {
+				"XX ", "X* ", " * ", 'X', Block.obsidian, '*', Item.stick });
+		ModLoader.addRecipe(new ItemStack(hoeObsidian, 1), new Object[] {
+				" XX", " * ", " * ", 'X', Block.obsidian, '*', Item.stick });
+		ModLoader.addRecipe(new ItemStack(spadeObsidian, 1), new Object[] {
+				" X ", " * ", " * ", 'X', Block.obsidian, '*', Item.stick });
+		ModLoader.addRecipe(new ItemStack(swordObsidian, 1), new Object[] {
+				" X ", " X ", " * ", 'X', Block.obsidian, '*', Item.stick });
+
+		// In Game Names
+
+		ModLoader.addName(pickaxeRedstone, "Redstone Pickaxe");
+		ModLoader.addName(axeRedstone, "Redstone Axe");
+		ModLoader.addName(hoeRedstone, "Redstone Hoe");
+		ModLoader.addName(spadeRedstone, "Redstone Shovel");
+		ModLoader.addName(swordRedstone, "Redstone Sword");
+		ModLoader.addName(pickaxeObsidian, "Obsidian Pickaxe");
+		ModLoader.addName(axeObsidian, "Obsidian Axe");
+		ModLoader.addName(hoeObsidian, "Obsidian Hoe");
+		ModLoader.addName(spadeObsidian, "Obsidian Shovel");
+		ModLoader.addName(swordObsidian, "Obsidian Sword");
+
+
+	}
+	
+	public void Armor() {
+		// Armour
+				Item helmetRedstone = new ItemArmor(1011, EnumArmorMaterial.REDSTONE, 5, 0)
+						.setUnlocalizedName("Redstone Helmet");
+				Item chestplateRedstone = new ItemArmor(1012, EnumArmorMaterial.REDSTONE, 5, 1)
+						.setUnlocalizedName("Redstone Chestplate");
+				Item legsRedstone = new ItemArmor(1013, EnumArmorMaterial.REDSTONE, 5, 2)
+						.setUnlocalizedName("Redstone Leggings");
+				Item bootsRedstone = new ItemArmor(1014, EnumArmorMaterial.REDSTONE, 5, 3)
+						.setUnlocalizedName("Redstone Boots");
+				Item helmetObsidian = new ItemArmor(1021, EnumArmorMaterial.OBSIDIAN, 5, 0)
+						.setUnlocalizedName("Obsidian Helmet");
+				Item chestplateObsidian = new ItemArmor(1022, EnumArmorMaterial.OBSIDIAN, 5, 1)
+						.setUnlocalizedName("Obsidian Chestplate");
+				Item legsObsidian = new ItemArmor(1023, EnumArmorMaterial.OBSIDIAN, 5, 2)
+						.setUnlocalizedName("Obsidian Leggings");
+				Item bootsObsidian = new ItemArmor(1024, EnumArmorMaterial.OBSIDIAN, 5, 3)
+						.setUnlocalizedName("Obsidian Boots");
+
+
+				// Recipes
+				ModLoader.addRecipe(new ItemStack(helmetRedstone, 1), new Object[] {
+						"XXX", "X X", "   ", 'X', Item.redstone });
+				ModLoader.addRecipe(new ItemStack(helmetRedstone, 1), new Object[] {
+						"   ", "XXX", "X X", 'X', Item.redstone });
+				ModLoader.addRecipe(new ItemStack(chestplateRedstone, 1), new Object[] {
+						"X X", "XXX", "XXX", 'X', Item.redstone });
+				ModLoader.addRecipe(new ItemStack(legsRedstone, 1), new Object[] {
+						"XXX", "X X", "X X", 'X', Item.redstone });
+				ModLoader.addRecipe(new ItemStack(bootsRedstone, 1), new Object[] {
+						"X X", "X X", "   ", 'X', Item.redstone });
+				ModLoader.addRecipe(new ItemStack(bootsRedstone, 1), new Object[] {
+						"   ", "X X", "X X", 'X', Item.redstone });
+				ModLoader.addRecipe(new ItemStack(helmetObsidian, 1), new Object[] {
+						"XXX", "X X", "   ", 'X', Block.obsidian });
+				ModLoader.addRecipe(new ItemStack(helmetObsidian, 1), new Object[] {
+						"   ", "XXX", "X X", 'X', Block.obsidian });
+				ModLoader.addRecipe(new ItemStack(chestplateObsidian, 1), new Object[] {
+						"X X", "XXX", "XXX", 'X', Block.obsidian });
+				ModLoader.addRecipe(new ItemStack(legsObsidian, 1), new Object[] {
+						"XXX", "X X", "X X", 'X', Block.obsidian });
+				ModLoader.addRecipe(new ItemStack(bootsObsidian, 1), new Object[] {
+						"X X", "X X", "   ", 'X', Block.obsidian });
+				ModLoader.addRecipe(new ItemStack(bootsObsidian, 1), new Object[] {
+					    "   ", "X X", "X X", 'X', Block.obsidian });
+
+
+				// In Game Names
+				ModLoader.addName(helmetRedstone, "Redstone Helmet");
+				ModLoader.addName(chestplateRedstone, "Redstone Chestplate");
+				ModLoader.addName(legsRedstone, "Redstone Leggings");
+				ModLoader.addName(bootsRedstone, "Redstone Boots");
+				ModLoader.addName(helmetObsidian, "Obsidian Helmet");
+				ModLoader.addName(chestplateObsidian, "Obsidian Chestplate");
+				ModLoader.addName(legsObsidian, "Obsidian Leggings");
+				ModLoader.addName(bootsObsidian, "Obsidian Boots");
+
+
+	}
+	
+		
+	public String getVersion() {
+		return "version 0.1.5";
+	}
+
+
+}
