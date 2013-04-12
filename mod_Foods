@@ -1,0 +1,33 @@
+package net.minecraft.src;
+
+public class mod_Foods extends BaseMod {
+
+  // Declaring Food
+	public static final Item SheepMeat = new ItemFood(177, 3, 0, true)
+			.setUnlocalizedName("SheepMeat").setCreativeTab(CreativeTabs.tabFood);
+	public static final Item CookedSheepMeat = new ItemFood(178, 8, 0, true)
+			.setUnlocalizedName("CookedSheepMeat").setCreativeTab(CreativeTabs.tabFood);
+	public static final Item CheeseSlice = new ItemFood(179, 3, 0, true)
+			.setUnlocalizedName("Cheese Slice").setCreativeTab(CreativeTabs.tabFood);
+	
+
+	public mod_Foods() {
+		// In game names
+		ModLoader.addName(SheepMeat, "Raw Sheep Meat");
+		ModLoader.addName(CookedSheepMeat, "Cooked Sheep Meat");
+		ModLoader.addName(CheeseSlice, "Cheese Slice");
+		// Furnace Recipes
+		ModLoader.addSmelting(mod_Foods.SheepMeat.itemID, new ItemStack(
+				mod_Foods.CookedSheepMeat), 0.5F);
+
+	}
+
+	public String getVersion() {
+		return null;
+	}
+
+	public void load() {
+
+	}
+
+}
