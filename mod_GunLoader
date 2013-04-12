@@ -1,0 +1,29 @@
+package net.minecraft.src;
+
+public class mod_GunLoader extends BaseMod {
+    
+// Items
+    public static Item CKL = (new Item(1051)).setUnlocalizedName("Carbon Kevlar Laminate").setCreativeTab(CreativeTabs.tabMaterials);
+  public static Item Silicon = (new Item(1052)).setUnlocalizedName("Silicon").setCreativeTab(CreativeTabs.tabMaterials);
+	public static Item Carbon = (new Item(1053)).setUnlocalizedName("Carbon").setCreativeTab(CreativeTabs.tabMaterials);
+	
+	// Armor
+	public static ItemArmor helmetCKL = (ItemArmor)(new ItemArmor(1054, EnumArmorMaterial.CKL, 0, 0)).setUnlocalizedName("CKL Helmet");
+	
+	
+	
+	public void mod_M110() {
+
+
+}
+	
+	
+	public String getVersion() {
+		return null;
+	}
+
+	public void load() {
+		
+	}
+
+}
